@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { updateEmail, updatePassword, reauthenticateWithCredential } from "firebase/auth";
+import { updateEmail, updatePassword} from "firebase/auth";
 import { selectCurrentUser } from "../../Store/User/UserSelector";
 import Spinner from '../Spinner/Spinner.jsx'
 // import { updateUser } from "../../Utils/Firebase/Firebase";
@@ -14,8 +14,6 @@ const INITIAL_STATE = {
     changePassword: '',
     confirmPassword: ''
 }
-
-console.log(reauthenticateWithCredential)
 
 const Profile = () => {
     const [formFields, setFormFields] = useState(INITIAL_STATE)
@@ -35,7 +33,6 @@ const Profile = () => {
         setFormFields({...formFields, [name]: value});
     }
 
-    console.log(currentUser)
     const handleSubmit = async(e) => {
         e.preventDefault();
         if(changePassword !== confirmPassword){
