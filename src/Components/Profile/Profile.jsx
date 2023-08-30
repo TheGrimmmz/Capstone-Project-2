@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { updateEmail, updatePassword, reauthenticateWithCredential } from "firebase/auth";
 import { selectCurrentUser } from "../../Store/User/UserSelector";
@@ -21,6 +21,13 @@ const Profile = () => {
     const {email, changePassword, confirmPassword} = formFields
     const currentUser = useSelector(selectCurrentUser)
     const [isEditing, setIsEditing] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        if(currentUser !== null){
+            setIsLoading(false)
+        }
+        },[currentUser])
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -43,7 +50,9 @@ const Profile = () => {
             if(e.code === 'auth/email-already-in-use'){
                 alert("Cannot update user, email already in use")
             }
-            console.log('Error', e.message)
+            if(e.code === 'auth/requires-recent-login'){
+                alert("Please logout and login to change!")
+            }
         }
     }
 
@@ -58,7 +67,7 @@ const Profile = () => {
 
     return (
         <ProfileContainer>
-            <h1>{}</h1>
+            {isLoading ? <h1>Loading...</h1> : <h1>{currentUser.email}</h1>}
                 <Button onClick={toggleEdit}>Edit Profile</Button>
             {isEditing ?
                 <FormContainer onSubmit={handleSubmit}>
