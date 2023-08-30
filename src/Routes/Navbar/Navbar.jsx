@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Outlet } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { ReactComponent as Logo } from "../../Assets/crown.svg"
@@ -11,12 +12,17 @@ import { Nav, LogoContainer, NavLink, NavLinks } from './Navbar.js'
 const Navbar = () => {
     const currentUser = useSelector(selectCurrentUser)
     const isCartOpen = useSelector(selectIsCartOpen)
+    const [isEditing, setIsEditing] = useState(false)
+
+    const edit = () => {
+      setIsEditing(true)
+    }
 
     const hideProfileEditOnGoogleSignIn = () => {
-      if(currentUser.displayName === null){
+      if(currentUser.displayName === null && isEditing === false){
         return (
           <div>
-            <NavLink to='/profile'>EDIT PROFILE</NavLink>
+            <NavLink to='/profile' onClick={edit}>EDIT PROFILE</NavLink>
           </div>
         )
       }
