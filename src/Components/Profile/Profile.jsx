@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { updateEmail, updatePassword, reauthenticateWithCredential } from "firebase/auth";
 import { selectCurrentUser } from "../../Store/User/UserSelector";
+import Spinner from '../Spinner/Spinner.jsx'
 // import { updateUser } from "../../Utils/Firebase/Firebase";
 import { ProfileContainer, FormContainer } from './Profile.js'
 
@@ -67,8 +68,11 @@ const Profile = () => {
 
     return (
         <ProfileContainer>
-            {isLoading ? <h1>Loading...</h1> : <h1>{currentUser.email}</h1>}
+            {isLoading ? <Spinner/> :
+            <div>
+                <h1>{currentUser.email}</h1>
                 <Button onClick={toggleEdit}>Edit Profile</Button>
+            </div>}
             {isEditing ?
                 <FormContainer onSubmit={handleSubmit}>
                     <FormInput
