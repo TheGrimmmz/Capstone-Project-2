@@ -27,8 +27,10 @@ const SignInForm = () => {
       try {
         await signInUser(email, password);
         reset();
-      } catch (error) {
-        console.log('user sign in failed', error);
+      } catch (e) {
+        if(e.code === 'auth/user-not-found'){
+          alert('User not found, please create user!')
+        }
       }
     };
 

@@ -49,7 +49,7 @@ const SignUpForm = () => {
             <Title>REGISTER WITH EMAIL AND PASSWORD</Title>
             <form onSubmit={handleSubmit}>
                 <FormInput
-                label="Username"
+                label="Display Name"
                 inputOptions = {{
                 type: 'text',
                 name: 'displayName',
@@ -95,3 +95,4 @@ const SignUpForm = () => {
 }
 
 export default SignUpForm;
+

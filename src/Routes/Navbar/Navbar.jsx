@@ -4,13 +4,24 @@ import { ReactComponent as Logo } from "../../Assets/crown.svg"
 import { selectIsCartOpen } from '../../Store/Cart/CartSelector'
 import { signOutUser } from "../../Utils/Firebase/Firebase"
 import CartIcon from "../../Components/CartIcon/CartIcon.jsx"
-import DropDown from "../../Components/DropDowm/DropDown.jsx"
+import DropDown from "../../Components/DropDown/DropDown.jsx"
 import { selectCurrentUser } from '../../Store/User/UserSelector'
 import { Nav, LogoContainer, NavLink, NavLinks } from './Navbar.js'
 
 const Navbar = () => {
     const currentUser = useSelector(selectCurrentUser)
     const isCartOpen = useSelector(selectIsCartOpen)
+
+    const hideProfileEditOnGoogleSignIn = () => {
+      if(currentUser.displayName === null){
+        return (
+          <div>
+            <NavLink to='/profile'>EDIT PROFILE</NavLink>
+          </div>
+        )
+      }
+      return;
+    }
 
     return (
       <>
@@ -20,7 +31,7 @@ const Navbar = () => {
             </LogoContainer>
             <NavLinks>
                 <NavLink to='/shop'>SHOP</NavLink>
-                {currentUser ? (<NavLink to='/profile'>EDIT PROFILE</NavLink>) : null}
+                {currentUser ? hideProfileEditOnGoogleSignIn() : null}
                 {currentUser ? (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>) :
                 (<NavLink to='/auth'>SIGN-IN</NavLink>)
                 }
