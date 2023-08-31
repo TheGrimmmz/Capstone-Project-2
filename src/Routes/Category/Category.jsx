@@ -19,6 +19,8 @@ const Category = () => {
     return (
     <>
         <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+        <hr/>
+        <br/>
         {isLoading ? <Spinner/> :
             <CategoryContainer>
                 {products && products.map((product) => <ProductCard key={product.id} product={product}/>)}

@@ -3,17 +3,17 @@ import styled from 'styled-components'
 import { SpinnerContainer } from '../Spinner/Spinner'
 
 export  const BaseButton = styled.button`
-    min-width: 165px;
+    /* min-width: 165px; */
     width: auto;
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px 0 35px;
+    padding: 0 10px 0 10px;
     font-size: 15px;
-    background-color: black;
+    background-color: rgb(54, 54, 54);
     color: white;
     text-transform: uppercase;
-    font-family: 'Barlow Condensed';
+    font-family: 'Red Hat Display';
     font-weight: bolder;
     border: none;
     cursor: pointer;
@@ -23,7 +23,7 @@ export  const BaseButton = styled.button`
 
     &:hover {
         background-color: white;
-        color: black;
+        color: rgb(54, 54, 54);
         border: 1px solid black;
     }
 `
@@ -40,11 +40,11 @@ export const GoogleButton = styled(BaseButton)`
 
 export const Inverted = styled(BaseButton)`
     background-color: white;
-    color: black;
+    color: rgb(54, 54, 54);
     border: 1px solid black;
 
     &:hover {
-        background-color: black;
+        background-color: rgb(54, 54, 54);
         color: white;
         border: none;
 }

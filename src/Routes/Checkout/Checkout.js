@@ -19,7 +19,6 @@ export const CheckoutHeader = styled.div`
 
 export const HeaderBlock = styled.span`
     text-transform: capitalize;
-    width: 23%;
 `
 
 export const Total = styled.span`

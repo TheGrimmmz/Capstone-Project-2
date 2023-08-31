@@ -8,6 +8,7 @@ const CheckoutItem = ({cartItem}) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems)
 
+    const addedPrice = price * quantity
     const handleAdd = () => dispatch(addItem(cartItems, cartItem))
     const handleRemove = () => dispatch(removeItem(cartItems, cartItem))
     const handleClear = () => dispatch(clearItem(cartItems, cartItem))
@@ -19,12 +20,12 @@ const CheckoutItem = ({cartItem}) => {
             </ImgContainer>
             <NamePrice>{name}</NamePrice>
             <Quantity>
-                <Arrow onClick={handleRemove}>&#10094;</Arrow>
+                <Arrow onClick={handleRemove}>-</Arrow>
                 <Value>{quantity}</Value>
-                <Arrow onClick={handleAdd}>&#10095;</Arrow>
+                <Arrow onClick={handleAdd}>+</Arrow>
             </Quantity>
-            <NamePrice>${price}</NamePrice>
-            <RemoveBtn onClick={handleClear}>&#10005;</RemoveBtn>
+            <NamePrice>${addedPrice}</NamePrice>
+            <RemoveBtn onClick={handleClear}>X</RemoveBtn>
         </CheckoutItemContainer>
     )
 }

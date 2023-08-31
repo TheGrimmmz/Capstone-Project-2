@@ -8,7 +8,7 @@ import {getAuth,
         signOut,
         onAuthStateChanged,
     } from 'firebase/auth';
-import {getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs} from 'firebase/firestore'
+import {getFirestore, doc, getDoc, setDoc, collection, writeBatch, query, getDocs, updateDoc} from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -67,6 +67,25 @@ export const createUserFromAuth = async (userAuth, additionalInformation = {}) =
         }
 
         return userDocRef
+    }
+}
+
+export const getUserDoc = async (userAuth) => {
+    if(!userAuth) return;
+    const newUserDocRef = doc(db, 'users', userAuth.uid)
+    const userSnapshot = await getDoc(newUserDocRef)
+    if(!userSnapshot.exists()){
+        console.log("User doesn't exist")
+    }
+    return userSnapshot.data()
+}
+
+export const updateUser = async (userId, updateFields) => {
+    const userDocRef = doc(db, 'users', userId)
+    try{
+        await updateDoc(userDocRef, updateFields)
+    }catch(e){
+        console.log(e.message)
     }
 }
 

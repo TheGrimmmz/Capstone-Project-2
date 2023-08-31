@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { Outlet } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { ReactComponent as Logo } from "../../Assets/crown.svg"
+import { ReactComponent as Logo } from "../../Assets/king.svg"
 import { selectIsCartOpen } from '../../Store/Cart/CartSelector'
 import { signOutUser } from "../../Utils/Firebase/Firebase"
 import CartIcon from "../../Components/CartIcon/CartIcon.jsx"
 import DropDown from "../../Components/DropDown/DropDown.jsx"
 import { selectCurrentUser } from '../../Store/User/UserSelector'
-import { Nav, LogoContainer, NavLink, NavLinks } from './Navbar.js'
+import { Nav, LogoContainer, NavLink, NavLinks} from './Navbar.js'
 
 const Navbar = () => {
     const currentUser = useSelector(selectCurrentUser)
@@ -19,11 +19,9 @@ const Navbar = () => {
     }
 
     const hideProfileEditOnGoogleSignIn = () => {
-      if(currentUser.displayName === null && isEditing === false){
+      if(currentUser.providerData[0].providerId === 'password' && isEditing === false){
         return (
-          <div>
             <NavLink to='/profile' onClick={edit}>EDIT PROFILE</NavLink>
-          </div>
         )
       }
       return;
@@ -38,7 +36,7 @@ const Navbar = () => {
             <NavLinks>
                 <NavLink to='/shop'>SHOP</NavLink>
                 {currentUser ? hideProfileEditOnGoogleSignIn() : null}
-                {currentUser ? (<NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>) :
+                {currentUser ? (<NavLink as='span' to='/auth' onClick={signOutUser}>SIGN OUT</NavLink>) :
                 (<NavLink to='/auth'>SIGN-IN</NavLink>)
                 }
                 <CartIcon/>

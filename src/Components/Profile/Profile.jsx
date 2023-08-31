@@ -5,11 +5,13 @@ import { selectCurrentUser } from "../../Store/User/UserSelector";
 import Spinner from '../Spinner/Spinner.jsx'
 // import { updateUser } from "../../Utils/Firebase/Firebase";
 import { ProfileContainer, FormContainer } from './Profile.js'
+import { getUserDoc, updateUser } from "../../Utils/Firebase/Firebase";
 
 import FormInput from "../FormInput/FormInput.jsx";
 import Button from '../Button/Button.jsx'
 
 const INITIAL_STATE = {
+    displayName: '',
     email: '',
     changePassword: '',
     confirmPassword: ''
@@ -17,14 +19,22 @@ const INITIAL_STATE = {
 
 const Profile = () => {
     const [formFields, setFormFields] = useState(INITIAL_STATE)
-    const {email, changePassword, confirmPassword} = formFields
+    const {displayName, email, changePassword, confirmPassword} = formFields
     const currentUser = useSelector(selectCurrentUser)
     const [isEditing, setIsEditing] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [userDocRef, setUserDocRef] = useState(false)
+
+    async function getUser(user){
+        let userDocRef = await getUserDoc(user)
+        setUserDocRef(userDocRef)
+    }
 
     useEffect(() => {
         if(currentUser !== null){
             setIsLoading(false)
+            getUser(currentUser)
+            // setFormFields({...formFields, displayName: userDocRef.displayName})
         }
         },[currentUser])
 
@@ -42,6 +52,7 @@ const Profile = () => {
         try {
             await updateEmail(currentUser, email)
             await updatePassword(currentUser, changePassword)
+            await updateUser(currentUser.uid, {displayName: displayName, email: email})
             reset()
             alert("User updated!")
         } catch (e) {
@@ -56,6 +67,7 @@ const Profile = () => {
 
     const toggleEdit = () => {
         setIsEditing(true)
+        setFormFields({...formFields, displayName: userDocRef.displayName, email: currentUser.email})
     }
 
     const reset = () => {
@@ -71,16 +83,25 @@ const Profile = () => {
                 <Button onClick={toggleEdit}>Edit Profile</Button>
             </div>}
             {isEditing ?
-                <FormContainer onSubmit={handleSubmit}>
-                    <FormInput
-                        label='Email'
-                        inputOptions={{
-                            type: 'text',
-                            name: 'email',
-                            value: email,
-                            onChange: handleChange
-                        }}
-                    />
+            <FormContainer onSubmit={handleSubmit}>
+                <FormInput
+                    label='Display Name'
+                    inputOptions={{
+                        type: 'text',
+                        name: 'displayName',
+                        value: displayName,
+                        onChange: handleChange
+                    }}
+                />
+                <FormInput
+                    label='Email'
+                    inputOptions={{
+                        type: 'text',
+                        name: 'email',
+                        value: email,
+                        onChange: handleChange
+                    }}
+                />
                     <FormInput
                         label='Change Password'
                         inputOptions={{

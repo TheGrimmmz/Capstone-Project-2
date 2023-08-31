@@ -6,10 +6,11 @@ const CatPreview = ({title, products}) => {
         <CatPreviewContainer>
             <h2>
                 <Title to={title}>{title.toUpperCase()}</Title>
+                <hr/>
             </h2>
             <Preview>
                 {products
-                .filter((_, idx) => idx < 4)
+                .filter((_, idx) => idx < 6)
                 .map((product) =>
                 <ProductCard key={product.id} product={product}/>
                 )}
