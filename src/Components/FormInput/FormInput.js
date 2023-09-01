@@ -30,7 +30,8 @@ export const FormInputLabel = styled.label`
 
 export const Input = styled.input`
     background: none;
-    background-color: white;
+    background-color: lightgrey;
+    /* background-color: rgb(181, 181, 181); */
     color: ${subColor};
     font-size: 18px;
     padding: 10px 10px 10px 5px;

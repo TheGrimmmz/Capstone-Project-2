@@ -22,7 +22,7 @@ export  const BaseButton = styled.button`
     align-items: center;
 
     &:hover {
-        background-color: white;
+        background-color: lightgrey;
         color: rgb(54, 54, 54);
         border: 1px solid black;
     }
@@ -39,13 +39,13 @@ export const GoogleButton = styled(BaseButton)`
 `
 
 export const Inverted = styled(BaseButton)`
-    background-color: white;
+    background-color: lightgrey;
     color: rgb(54, 54, 54);
     border: 1px solid black;
 
     &:hover {
         background-color: rgb(54, 54, 54);
-        color: white;
+        color: lightgrey;
         border: none;
 }
 `

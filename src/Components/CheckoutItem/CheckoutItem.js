@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const CheckoutItemContainer = styled.div`
+background-color: lightgrey;
 width: 100%;
 display: flex;
 min-height: 100px;
-border-bottom: 1px solid darkgrey;
-padding: 15px 0;
+border-bottom: 1px solid darkgray;
+padding: 15px;
 font-size: 20px;
 align-items: center;
 `
