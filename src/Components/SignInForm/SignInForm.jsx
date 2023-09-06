@@ -3,6 +3,7 @@ import FormInput from "../FormInput/FormInput.jsx";
 import {signInUser, signInWithGooglePopup} from '../../Utils/Firebase/Firebase'
 import Button, {TYPES} from "../Button/Button.jsx";
 import {SignInContainer, Title, ButtonContainer} from './SignInForm.js'
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_STATE = {
     email: '',
@@ -12,6 +13,7 @@ const INITIAL_STATE = {
 const SignInForm = () => {
     const [formFields, setFormFields] = useState(INITIAL_STATE);
     const { email, password } = formFields;
+    const navigate = useNavigate();
 
     const reset = () => {
       setFormFields(INITIAL_STATE);
@@ -19,6 +21,7 @@ const SignInForm = () => {
 
     const googleSignIn = async () => {
       await signInWithGooglePopup();
+      navigate('/shop')
     };
 
     const handleSubmit = async (e) => {
@@ -27,6 +30,7 @@ const SignInForm = () => {
       try {
         await signInUser(email, password);
         reset();
+        navigate('/shop')
       } catch (e) {
         if(e.code === 'auth/user-not-found'){
           alert('User not found, please create user!')
@@ -65,7 +69,7 @@ const SignInForm = () => {
                 }}
                 />
                 <ButtonContainer>
-                    <Button type="submit">SIGN IN</Button>
+                    <Button type="submit" >SIGN IN</Button>
                     <Button type='button' buttonType={TYPES.google} onClick={googleSignIn}>Google Sign In</Button>
                 </ButtonContainer>
             </form>

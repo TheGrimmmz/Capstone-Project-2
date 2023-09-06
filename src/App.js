@@ -7,6 +7,8 @@ import Auth from "./Routes/Auth/Auth.jsx";
 import Shop from "./Routes/Shop/Shop";
 import Checkout from "./Routes/Checkout/Checkout.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
+import Success from './Components/Success/Success.jsx'
+import Failed from './Components/Failed/Failed.jsx'
 import { onStateChanged } from "./Utils/Firebase/Firebase";
 import { createUserFromAuth } from "./Utils/Firebase/Firebase";
 import { setCurrentUser } from "./Store/User/UserAction";
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="auth" element={<Auth/>}/>
           <Route path="checkout" element={<Checkout/>}/>
           <Route path="profile" element={<Profile/>}/>
+          <Route path="success" element={<Success/>}/>
+          <Route path="failed" element={<Failed/>}/>
         </Route>
       </Routes>
   )

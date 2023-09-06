@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../Store/Cart/CartSelector.js";
 import { selectCurrentUser } from "../../Store/User/UserSelector.js";
+import { useNavigate } from "react-router-dom";
 
 const PaymentForm = () => {
     const stripe = useStripe();
@@ -13,6 +14,7 @@ const PaymentForm = () => {
     const amount = useSelector(selectCartTotal)
     const currentUser = useSelector(selectCurrentUser)
     const [isProcessingPayment, setIsProcessingPayment] = useState(false)
+    const navigate = useNavigate()
 
     const handlePayment = async (e) => {
         e.preventDefault()
@@ -46,11 +48,13 @@ const PaymentForm = () => {
 
         if (paymentRes.error){
             console.log(paymentRes.error);
+            navigate('/failed')
         } else {
             if(paymentRes.paymentIntent.status === 'succeeded'){
-                alert("Payment Successful")
+                navigate('/success')
             }
         }
+
     }
 
     return (
