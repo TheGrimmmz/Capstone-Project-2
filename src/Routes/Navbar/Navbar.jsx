@@ -17,11 +17,14 @@ const Navbar = () => {
     const edit = () => {
       setIsEditing(true)
     }
+    const stopEdit = () => {
+      setIsEditing(false)
+    }
 
     const hideProfileEditOnGoogleSignIn = () => {
       if(currentUser.providerData[0].providerId === 'password' && isEditing === false){
         return (
-            <NavLink to='/profile' onClick={edit}>EDIT PROFILE</NavLink>
+          <NavLink to='/profile' onClick={edit}>EDIT PROFILE</NavLink>
         )
       }
       return;
@@ -31,10 +34,10 @@ const Navbar = () => {
       <>
         <Nav>
             <LogoContainer to='/'>
-                <Logo className="logo"/>
+                <Logo className="logo" onClick={stopEdit}/>
             </LogoContainer>
             <NavLinks>
-                <NavLink to='/shop'>SHOP</NavLink>
+                <NavLink to='/shop' onClick={stopEdit}>SHOP</NavLink>
                 {currentUser ? hideProfileEditOnGoogleSignIn() : null}
                 {currentUser ? (<NavLink as='span' to='/auth' onClick={signOutUser}>SIGN OUT</NavLink>) :
                 (<NavLink to='/auth'>SIGN-IN</NavLink>)
