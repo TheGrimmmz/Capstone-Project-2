@@ -3,18 +3,23 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import {TYPES} from "../Button/Button.jsx";
 import {PaymentFormContainer, Form, PaymentButton} from './PaymentForm.js'
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { selectCartTotal } from "../../Store/Cart/CartSelector.js";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems, selectCartTotal } from "../../Store/Cart/CartSelector.js";
 import { selectCurrentUser } from "../../Store/User/UserSelector.js";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../Store/Cart/CartAction.js";
 
 const PaymentForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const amount = useSelector(selectCartTotal)
     const currentUser = useSelector(selectCurrentUser)
+    const dispatch = useDispatch()
+    const cartItems = useSelector(selectCartItems)
     const [isProcessingPayment, setIsProcessingPayment] = useState(false)
     const navigate = useNavigate()
+
+    const clearShopCart = () => dispatch(clearCart(cartItems))
 
     const handlePayment = async (e) => {
         e.preventDefault()
@@ -51,6 +56,7 @@ const PaymentForm = () => {
             navigate('/failed')
         } else {
             if(paymentRes.paymentIntent.status === 'succeeded'){
+                localStorage.clear()
                 navigate('/success')
             }
         }
@@ -62,7 +68,7 @@ const PaymentForm = () => {
             <Form onSubmit={handlePayment}>
                 <h2>Credit Card Payment: </h2>
                 <CardElement/>
-                <PaymentButton isLoading={isProcessingPayment} buttonType={TYPES.inverted}>PAY NOW</PaymentButton>
+                <PaymentButton isLoading={isProcessingPayment} buttonType={TYPES.inverted} onClick={() => clearShopCart()}>PAY NOW</PaymentButton>
             </Form>
         </PaymentFormContainer>
     )
