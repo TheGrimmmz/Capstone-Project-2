@@ -19,7 +19,7 @@ const PaymentForm = () => {
     const [isProcessingPayment, setIsProcessingPayment] = useState(false)
     const navigate = useNavigate()
 
-    const clearShopCart = () => dispatch(clearCart(cartItems))
+    // const clearShopCart = () => dispatch(clearCart(cartItems))
 
     const handlePayment = async (e) => {
         e.preventDefault()
@@ -56,7 +56,7 @@ const PaymentForm = () => {
             navigate('/failed')
         } else {
             if(paymentRes.paymentIntent.status === 'succeeded'){
-                localStorage.clear()
+                // localStorage.clear()
                 navigate('/success')
             }
         }
@@ -68,7 +68,7 @@ const PaymentForm = () => {
             <Form onSubmit={handlePayment}>
                 <h2>Credit Card Payment: </h2>
                 <CardElement/>
-                <PaymentButton isLoading={isProcessingPayment} buttonType={TYPES.inverted} onClick={() => clearShopCart()}>PAY NOW</PaymentButton>
+                <PaymentButton isLoading={isProcessingPayment} buttonType={TYPES.inverted}>PAY NOW</PaymentButton>
             </Form>
         </PaymentFormContainer>
     )
