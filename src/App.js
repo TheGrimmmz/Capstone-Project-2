@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Home from "./Routes/Home/Home";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Routes/Navbar/Navbar.jsx";
@@ -12,9 +12,13 @@ import Failed from './Components/Failed/Failed.jsx'
 import { onStateChanged } from "./Utils/Firebase/Firebase";
 import { createUserFromAuth } from "./Utils/Firebase/Firebase";
 import { setCurrentUser } from "./Store/User/UserAction";
+import { setIsCartOpen } from "./Store/Cart/CartAction";
+import { selectIsCartOpen } from "./Store/Cart/CartSelector";
 
 const App = () => {
   const dispatch = useDispatch()
+  const isCartOpen = useSelector(selectIsCartOpen)
+
 
   useEffect(() => {
     const unsubscribe = onStateChanged((user)=>{
@@ -25,6 +29,17 @@ const App = () => {
     })
     return unsubscribe;
   },[dispatch])
+
+  const toggleDropdown = () => {
+    if(isCartOpen === true){
+        dispatch(setIsCartOpen(false))
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('click', toggleDropdown)
+    return ()=>{window.removeEventListener('click', toggleDropdown)}
+  })
 
   return (
       <Routes>

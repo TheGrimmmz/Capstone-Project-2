@@ -23,10 +23,6 @@ const removeCartItem = (cartItems, removeCartItem ) => {
     )
 }
 
-const clearExistingCart = (cartItems) => {
-    return cartItems.length = 0
-}
-
 const clearCartItem = (cartItems, clearItem) => {
     return cartItems.filter((cartItem) => cartItem.id !== clearItem.id)
 }
@@ -46,9 +42,8 @@ export const clearItem = (cartItems, clearItem) => {
     return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems)
 }
 
-export const clearCart = (cartItems) => {
-    const newCartItems = clearExistingCart(cartItems)
-    return createAction(CART_ACTION_TYPES.SET_CART_EMPTY, newCartItems)
+export const clearCart = () => {
+    return createAction(CART_ACTION_TYPES.SET_CART_EMPTY)
 }
 
 export const setIsCartOpen = (boolean) =>

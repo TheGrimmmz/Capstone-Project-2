@@ -21,7 +21,7 @@ export const cartReducer = (state=INITIAL_STATE, action={}) => {
             }
         case CART_ACTION_TYPES.SET_CART_EMPTY:
             return {...state,
-                cartItems: INITIAL_STATE
+                cartItems: INITIAL_STATE.cartItems
             }
         default:
             return state

@@ -8,7 +8,10 @@ const CartIcon = () => {
     const cartCount = useSelector(selectCartCount)
     const isCartOpen = useSelector(selectIsCartOpen)
 
-    const toggleCart = () => dispatch(setIsCartOpen(!isCartOpen))
+    const toggleCart = (e) => {
+        e.stopPropagation()
+        dispatch(setIsCartOpen(!isCartOpen))
+    }
 
     return (
         <IconContainer onClick={toggleCart}>

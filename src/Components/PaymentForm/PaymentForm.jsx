@@ -4,7 +4,7 @@ import {TYPES} from "../Button/Button.jsx";
 import {PaymentFormContainer, Form, PaymentButton} from './PaymentForm.js'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCartItems, selectCartTotal } from "../../Store/Cart/CartSelector.js";
+import { selectCartTotal } from "../../Store/Cart/CartSelector.js";
 import { selectCurrentUser } from "../../Store/User/UserSelector.js";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../Store/Cart/CartAction.js";
@@ -15,11 +15,10 @@ const PaymentForm = () => {
     const amount = useSelector(selectCartTotal)
     const currentUser = useSelector(selectCurrentUser)
     const dispatch = useDispatch()
-    const cartItems = useSelector(selectCartItems)
     const [isProcessingPayment, setIsProcessingPayment] = useState(false)
     const navigate = useNavigate()
 
-    // const clearShopCart = () => dispatch(clearCart(cartItems))
+    const clearShopCart = () => dispatch(clearCart())
 
     const handlePayment = async (e) => {
         e.preventDefault()
@@ -56,11 +55,11 @@ const PaymentForm = () => {
             navigate('/failed')
         } else {
             if(paymentRes.paymentIntent.status === 'succeeded'){
-                // localStorage.clear()
+                clearShopCart()
+                localStorage.clear()
                 navigate('/success')
             }
         }
-
     }
 
     return (
