@@ -24,5 +24,10 @@ For major changes, please open an issue first to discuss what you would like to 
 
 Please make sure changes are appropriate!
 
-##API
-Created my own api
+##Firebase
+Create an account on firebase attach your [GitHub](https://www.github.com).
+Select go to console in top right corner.
+Create a project.
+
+##Stripe
+Create an account on [Stripe](https://www.stripe.com)
