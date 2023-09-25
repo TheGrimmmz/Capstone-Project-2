@@ -13,6 +13,8 @@
 
 .env
 .side
+Dockerfile
+.dockerignore
 
 # misc
 .DS_Store
