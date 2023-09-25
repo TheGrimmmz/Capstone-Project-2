@@ -20,10 +20,10 @@ const DropDown = () => {
                 {cartItems.length ? (
                     cartItems.map(item => <CartItem key={item.id} cartItem={item}/>)
                 ) : (
-                    <EmptyMessage>Cart is Empty</EmptyMessage>
+                    <EmptyMessage><b>Cart is Empty</b></EmptyMessage>
                     )}
             </Cart>
-            <Total>Total: ${cartTotal}</Total>
+            <Total><b>Total: ${cartTotal}</b></Total>
             <Button onClick={handleCheckout}>CHECKOUT</Button>
         </DropDownContainer>
     )

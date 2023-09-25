@@ -6,7 +6,7 @@ const CatelogItem = ({imageUrl, title}) => {
           <BackgroundImage imageUrl={imageUrl}/>
           <CatelogBodyContainer>
             <h2>{title}</h2>
-            <p>Shop Now</p>
+            <p><b>Shop Now</b></p>
           </CatelogBodyContainer>
         </CatelogContainer>
     )

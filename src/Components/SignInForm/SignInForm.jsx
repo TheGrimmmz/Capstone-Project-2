@@ -46,7 +46,7 @@ const SignInForm = () => {
 
     return (
         <SignInContainer>
-            <Title>HAVE AN ACCOUNT - SIGN IN</Title>
+            <Title><b>HAVE AN ACCOUNT - SIGN IN</b></Title>
             <form onSubmit={handleSubmit}>
                 <FormInput
                 label="Email"

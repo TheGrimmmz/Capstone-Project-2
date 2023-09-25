@@ -1,7 +1,7 @@
 
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import {TYPES} from "../Button/Button.jsx";
-import {PaymentFormContainer, Form, PaymentButton} from './PaymentForm.js'
+import {PaymentFormContainer, Form, PaymentButton, CardElementContainer} from './PaymentForm.js'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartTotal } from "../../Store/Cart/CartSelector.js";
@@ -66,7 +66,7 @@ const PaymentForm = () => {
         <PaymentFormContainer>
             <Form onSubmit={handlePayment}>
                 <h2>Credit Card Payment: </h2>
-                <CardElement/>
+                <CardElementContainer/>
                 <PaymentButton isLoading={isProcessingPayment} buttonType={TYPES.inverted}>PAY NOW</PaymentButton>
             </Form>
         </PaymentFormContainer>

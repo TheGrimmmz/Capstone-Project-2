@@ -46,7 +46,7 @@ const SignUpForm = () => {
 
     return (
         <SignupContainer>
-            <Title>REGISTER WITH EMAIL AND PASSWORD</Title>
+            <Title><b>REGISTER WITH EMAIL AND PASSWORD</b></Title>
             <form onSubmit={handleSubmit}>
                 <FormInput
                 label="Display Name"
@@ -95,4 +95,3 @@ const SignUpForm = () => {
 }
 
 export default SignUpForm;
-

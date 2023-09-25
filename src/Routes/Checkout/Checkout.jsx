@@ -12,19 +12,19 @@ const Checkout = () => {
         <CheckoutContainer>
             <CheckoutHeader>
                 <HeaderBlock>
-                    <span>Product</span>
+                    <span><b>Product</b></span>
                 </HeaderBlock>
                 <HeaderBlock>
-                    <span>Description</span>
+                    <span><b>Description</b></span>
                 </HeaderBlock>
                 <HeaderBlock>
-                    <span>Quantity</span>
+                    <span><b>Quantity</b></span>
                 </HeaderBlock>
                 <HeaderBlock>
-                    <span>Price</span>
+                    <span><b>Price</b></span>
                 </HeaderBlock>
                 <HeaderBlock>
-                    <span>Remove</span>
+                    <span><b>Remove</b></span>
                 </HeaderBlock>
             </CheckoutHeader>
             {cartItems.map((item) => (

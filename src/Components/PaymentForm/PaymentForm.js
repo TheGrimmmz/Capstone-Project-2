@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { CardElement } from '@stripe/react-stripe-js'
 import Button from '../Button/Button.jsx'
 
 export const PaymentFormContainer = styled.div`
@@ -17,4 +18,10 @@ export const Form = styled.form`
 export const PaymentButton = styled(Button)`
 margin-left: auto;
 margin-top: 30px;
+`
+
+export const CardElementContainer = styled(CardElement)`
+    border: 1px solid black;
+    padding: 10px;
+    background-color: lightgrey;
 `

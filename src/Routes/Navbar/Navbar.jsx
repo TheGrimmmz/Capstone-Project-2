@@ -22,9 +22,9 @@ const Navbar = () => {
     }
 
     const hideProfileEditOnGoogleSignIn = () => {
-      if(currentUser.providerData[0].providerId === 'password' && isEditing === false){
+      if(currentUser.displayName === null && isEditing === false){
         return (
-          <NavLink to='/profile' onClick={edit}>EDIT PROFILE</NavLink>
+          <NavLink to='/profile' onClick={edit}><b>EDIT PROFILE</b></NavLink>
         )
       }
       return;
@@ -37,10 +37,10 @@ const Navbar = () => {
                 <Logo className="logo" onClick={stopEdit}/>
             </LogoContainer>
             <NavLinks>
-                <NavLink to='/shop' onClick={stopEdit}>SHOP</NavLink>
+                <NavLink to='/shop' onClick={stopEdit}><b>SHOP</b></NavLink>
                 {currentUser ? hideProfileEditOnGoogleSignIn() : null}
-                {currentUser ? (<NavLink as='span' to='/auth' onClick={signOutUser}>SIGN OUT</NavLink>) :
-                (<NavLink to='/auth'>SIGN-IN</NavLink>)
+                {currentUser ? (<NavLink as='span' to='/auth' onClick={signOutUser}><b>SIGN-OUT</b></NavLink>) :
+                (<NavLink to='/auth'><b>SIGN-IN</b></NavLink>)
                 }
                 <CartIcon/>
             </NavLinks>

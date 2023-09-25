@@ -1,0 +1,129 @@
+{
+  "id": "5ffe0f21-fa28-4e79-8c29-99c2236b4846",
+  "version": "2.0",
+  "name": "test2",
+  "url": "https://kings-clothing.netlify.app",
+  "tests": [{
+    "id": "31bd2dff-13f6-48b0-8f74-e3c5c0a13f92",
+    "name": "test2",
+    "commands": [{
+      "id": "80c1d0b5-3278-4725-b88c-15dc5a5418f3",
+      "comment": "",
+      "command": "open",
+      "target": "/shop",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dfc642f-da86-44b9-ab50-3ba75f9dc3c6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1011x1415",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c186ba87-f4ae-4b71-90a7-1c874d6d9bb9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=SHOP",
+      "targets": [
+        ["linkText=SHOP", "linkText"],
+        ["css=.sc-dmBjiZ:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'SHOP')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/shop')]", "xpath:href"],
+        ["xpath=//div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'SHOP')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34031bc2-d5da-4579-bba5-b4d41f398f3a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-cCIIiH:nth-child(2) .sc-bYUneI:nth-child(3) > .sc-pqitP",
+      "targets": [
+        ["css=.sc-cCIIiH:nth-child(2) .sc-bYUneI:nth-child(3) > .sc-pqitP", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf27377a-5ad4-48d4-b3b7-f785be06b3e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-gKHVLF",
+      "targets": [
+        ["css=.sc-gKHVLF", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,'1')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f3d99bf-81bd-4d3b-b2cf-973a4188754c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-hBpgZr > .sc-pqitP",
+      "targets": [
+        ["css=.sc-hBpgZr > .sc-pqitP", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'CHECKOUT')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aab3c2b5-d7a4-464b-998e-76d8761a634c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-bCnriq:nth-child(3)",
+      "targets": [
+        ["css=.sc-bCnriq:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/span[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//span[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2ee4b74-f92c-4c02-b100-52af49deb185",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-dPOtYP",
+      "targets": [
+        ["css=.sc-dPOtYP", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/span[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32b76ea1-8469-4eac-b65f-5a58a33337a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-bCnriq:nth-child(1)",
+      "targets": [
+        ["css=.sc-bCnriq:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/span[2]/div", "xpath:idRelative"],
+        ["xpath=//span[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e84e291e-0054-400e-a0e2-a95d41d08868",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sc-AOXSc",
+      "targets": [
+        ["css=.sc-AOXSc", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c564d825-c175-4eec-9d9f-4189555db53e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["31bd2dff-13f6-48b0-8f74-e3c5c0a13f92"]
+  }],
+  "urls": ["https://kings-clothing.netlify.app/"],
+  "plugins": []
+}

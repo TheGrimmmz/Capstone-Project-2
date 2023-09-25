@@ -18,14 +18,14 @@ const CheckoutItem = ({cartItem}) => {
             <ImgContainer>
                 <Img src={imageUrl} alt={`${name}`}/>
             </ImgContainer>
-            <NamePrice>{name}</NamePrice>
+            <NamePrice><b>{name}</b></NamePrice>
             <Quantity>
-                <Arrow onClick={handleRemove}>-</Arrow>
-                <Value>{quantity}</Value>
-                <Arrow onClick={handleAdd}>+</Arrow>
+                <Arrow onClick={handleRemove}><b>-</b></Arrow>
+                <Value><b>{quantity}</b></Value>
+                <Arrow onClick={handleAdd}><b>+</b></Arrow>
             </Quantity>
-            <NamePrice>${addedPrice}</NamePrice>
-            <RemoveBtn onClick={handleClear}>X</RemoveBtn>
+            <NamePrice><b>${addedPrice}</b></NamePrice>
+            <RemoveBtn onClick={handleClear}><b>X</b></RemoveBtn>
         </CheckoutItemContainer>
     )
 }

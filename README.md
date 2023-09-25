@@ -31,3 +31,9 @@ Create a project.
 
 ##Stripe
 Create an account on [Stripe](https://www.stripe.com)
+Connect your stripe account with your REACT_APP_STRIPE_PUBLISHABLE_KEY and STRIPE_SECRET_KEY within a .env file outside of the src folder
+
+<!-- ##Tests
+```zsh
+npm test
+``` -->

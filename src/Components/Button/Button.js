@@ -43,6 +43,22 @@ export const Inverted = styled(BaseButton)`
     color: rgb(54, 54, 54);
     border: 1px solid black;
 
+    @media (max-width: 940px) {
+        font-size: 10px;
+        padding: 0 5px 0 5px;
+    }
+
+    @media (max-width: 900px) {
+        padding: 0 2px 0 2px;
+    }
+    @media (max-width: 803px) {
+        padding: 0 1px 0 1px;
+    }
+    @media (max-width: 646px) {
+        font-size: 8px;
+        padding: 0;
+    }
+
     &:hover {
         background-color: rgb(54, 54, 54);
         color: lightgrey;
