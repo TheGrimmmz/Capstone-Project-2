@@ -20,11 +20,11 @@ border: 1px solid black;
 background-color: white;
 opacity: 0.8;
 position: absolute;
-border-radius: 20px;
 
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
+    padding-top: 5px;
     font-size: 22px;
     color: #4a4a4a;
   }
@@ -45,7 +45,6 @@ export const CatelogContainer = styled(Link)`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
-  border-radius: 25px;
 
     &:hover {
         cursor: pointer;
