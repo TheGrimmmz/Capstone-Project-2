@@ -29,7 +29,9 @@ const SignUpForm = () => {
         }
 
         try {
+            //takes user from signup form with email and password
             const {user} = await createAuthUserEmailPassword(email, password)
+            //creates user for database to store
             await createUserFromAuth(user, {displayName})
             reset()
         } catch (e) {

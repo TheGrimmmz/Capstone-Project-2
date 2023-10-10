@@ -36,7 +36,7 @@ const SignInForm = () => {
           alert('User not found, please create user!')
         }
         if(e.code === 'auth/wrong-password'){
-          alert('Wrong password!')
+          alert('Wrong password! Try again!')
         }
       }
     };
