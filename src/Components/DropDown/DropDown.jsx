@@ -10,7 +10,7 @@ const DropDown = () => {
     const cartTotal = useSelector(selectCartTotal)
     const navigate = useNavigate();
 
-    const handleCheckout = (e) => {
+    const handleCheckout = () => {
         navigate('/checkout')
     }
 
