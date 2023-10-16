@@ -6,6 +6,15 @@ export const CATEGORIES_INITIAL_STATE = {
     error: null,
 }
 
+/**
+ * Reduces the state based on the given action.
+ *
+ * @param {object} state - The current state.
+ * @param {object} action - The action object.
+ * @param {string} action.type - The type of the action.
+ * @param {*} action.payload - The payload of the action.
+ * @return {object} The new state after reducing.
+ */
 export const categoriesReducer = (state=CATEGORIES_INITIAL_STATE, action={})=>{
     const {type, payload} = action;
 

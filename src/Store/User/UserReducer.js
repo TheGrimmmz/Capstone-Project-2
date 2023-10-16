@@ -20,6 +20,13 @@ const INITIAL_STATE = {
 
 // export const userReducerNew = userSlice.reducer;
 
+/**
+ * Reduces the state based on the given action.
+ *
+ * @param {object} state - The current state.
+ * @param {object} action - The action object containing a type and payload.
+ * @return {object} The updated state.
+ */
 export const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 

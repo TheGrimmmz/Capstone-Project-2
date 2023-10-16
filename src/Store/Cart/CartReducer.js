@@ -5,6 +5,15 @@ export const INITIAL_STATE = {
     cartItems: [],
 }
 
+/**
+ * Reduces the state of the cart based on the given action.
+ *
+ * @param {object} state - The current state of the cart.
+ * @param {object} action - The action being dispatched.
+ * @param {string} action.type - The type of the action.
+ * @param {any} action.payload - The payload of the action.
+ * @return {object} The new state of the cart.
+ */
 export const cartReducer = (state=INITIAL_STATE, action={}) => {
     const{type, payload} = action
 
