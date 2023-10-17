@@ -27,7 +27,6 @@ const Navbar = () => {
           <NavLink to='/profile' onClick={edit}><b>EDIT PROFILE</b></NavLink>
         )
       }
-      return;
     }
 
     return (
