@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createAuthUserEmailPassword, createUserFromAuth } from "../../Utils/Firebase/Firebase";
 import FormInput from "../FormInput/FormInput.jsx";
 import Button from "../Button/Button.jsx";
+import { useNavigate } from "react-router-dom"
 import {SignupContainer, Title} from './SignUpForm.js'
 
 const INITIAL_STATE = {
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
 const SignUpForm = () => {
     const [formFields, setFormFields] = useState(INITIAL_STATE)
     const {displayName, email, password, confirmPassword} = formFields
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -34,6 +36,7 @@ const SignUpForm = () => {
             //creates user for database to store
             await createUserFromAuth(user, {displayName})
             reset()
+            navigate('/shop')
         } catch (e) {
             if(e.code === 'auth/email-already-in-use'){
                 alert("Cannot create user, email already in use")
